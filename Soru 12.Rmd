@@ -1,0 +1,64 @@
+---
+title: "Soru12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+
+
+#Data 
+
+```{r}
+setwd("C:/Users/User/Desktop/Intern")
+dataset <- read.csv("dataset.csv",header=T,sep=",")
+
+```
+
+
+# Is there Na in the data
+```{r}
+anyNA(dataset)
+```
+
+# Sum Na
+```{r}
+colSums(is.na(dataset))
+
+
+```
+
+#Summary Dataset
+```{r}
+summary(dataset)
+```
+
+# Na and !Na summary
+
+```{r}
+summary(complete.cases(dataset))
+```
+
+#Rows with NA values
+```{r}
+dataset[!complete.cases(dataset),]
+```
+
+#Remove ALL NA
+```{r}
+datasetclear <- na.omit(dataset)
+```
+
+#After clearing the data, we go to POWER BI to visualize it better.
+
+```{r}
+write.csv(datasetclear,"datasetclear.csv")
+```
+
+
+
+
